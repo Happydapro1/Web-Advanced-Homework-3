@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        const initialData = [
+            { name: "Phước", age: 25 },
+            { name: "Minh", age: 30 }
+        ];
+        localStorage.setItem("users", JSON.stringify(initialData));
+
+        function updateUserName(oldName, newName) {
+            let users = JSON.parse(localStorage.getItem("users"));
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].name === oldName) {
+                    users[i].name = newName;
+                    break;
+                }
+            }
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        function deleteUserByName(nameToDelete) {
+            let users = JSON.parse(localStorage.getItem("users"));
+            users = users.filter(user => user.name !== nameToDelete);
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        function clearAllUsers() {
+            localStorage.removeItem("users");
+        }
+
+        updateUserName("Phước", "Hà");
+        console.log("Sau khi cập nhật 'Phước' thành 'Hà':", JSON.parse(localStorage.getItem("users")));
+
+        deleteUserByName("Phước");
+        console.log("Sau khi xóa người dùng 'Phước':", JSON.parse(localStorage.getItem("users")));
+
+        clearAllUsers();
+        console.log("Sau khi xóa toàn bộ dữ liệu người dùng:", localStorage.getItem("users"));
+    </script>
+</body>
+</html>

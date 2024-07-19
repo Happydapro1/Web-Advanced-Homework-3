@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+</head>
+
+<body>
+    <img id="slideImage"
+        src="https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHx8fDE3MjEzMTAwNjF8MA&ixlib=rb-4.0.3"
+        style="width: 600px; height: 400px;">
+
+    <script>
+        const images = ['https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHx8fDE3MjEzMTAwNjF8MA&ixlib=rb-4.0.3', 'https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649', 'https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1721260800&semt=ais_user'];
+        let currentIndex = 0;
+        const slideImage = document.getElementById('slideImage');
+
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            slideImage.src = images[currentIndex];
+        }
+
+        setInterval(showNextImage, 3000); // Chuyển đổi hình ảnh mỗi 3 giây
+    </script>
+</body>
+
+</html>

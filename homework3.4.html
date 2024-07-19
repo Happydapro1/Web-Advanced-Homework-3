@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Game</title>
+</head>
+<body>
+    <h1 id="word">...</h1>
+    <input type="text" id="input" placeholder="Gõ từ ở đây">
+    <button onclick="checkInput()">Kiểm tra</button>
+    <p id="message"></p>
+
+    <script>
+        const words = ['apple', 'banana', 'cherry'];
+        let currentWord = '';
+
+        function getRandomWord() {
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function displayNewWord() {
+            currentWord = getRandomWord();
+            document.getElementById('word').textContent = currentWord;
+            document.getElementById('input').value = ''; // Xóa ô nhập
+            document.getElementById('message').textContent = ''; // Xóa thông báo
+        }
+
+        function checkInput() {
+            const input = document.getElementById('input').value;
+            if (input === currentWord) {
+                document.getElementById('message').textContent = 'Bạn đã gõ đúng!';
+                displayNewWord();
+            } else {
+                document.getElementById('message').textContent = 'Bạn đã gõ sai!';
+            }
+        }
+
+        displayNewWord(); // Hiển thị từ ngẫu nhiên đầu tiên
+    </script>
+</body>
+</html>

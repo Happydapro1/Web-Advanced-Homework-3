@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đồng hồ đếm ngược</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .countdown {
+            font-size: 48px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown" id="countdown">10</div>
+
+    <script>
+    
+        let count = 10;
+
+        const countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+            if (count > 0) {
+                countdownElement.textContent = count;
+                count--;
+            } else {
+                countdownElement.textContent = "Đã hết giờ!";
+                clearInterval(intervalId); 
+            }
+        }
+        
+        const intervalId = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
